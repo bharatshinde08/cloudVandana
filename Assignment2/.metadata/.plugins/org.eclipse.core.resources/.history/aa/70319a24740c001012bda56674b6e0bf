@@ -1,0 +1,44 @@
+package test;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter first string");
+		String str1 = sc.next();
+		System.out.println("Enter second string");
+		String str2 = sc.next();
+		
+		boolean flag = true;
+		
+		String s1 = str1.replaceAll("\\s", "");
+		String s2 = str2.replaceAll("\\s", "");
+		
+		if(s1.length() != s2.length()) {
+			flag = false;
+		}
+		else {
+			char[] arr1 = s1.toLowerCase().toCharArray();
+			char[] arr2 = s2.toLowerCase().toCharArray();
+			
+			Arrays.sort(arr1);
+			Arrays.sort(arr2);
+			
+			flag = Arrays.equals(arr1, arr2);
+		}
+		
+		if(flag) {
+			System.out.println(true);
+		}
+		else {
+			System.out.println(false);
+		}
+		
+	}
+
+}
